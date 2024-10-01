@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript For...In Example</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        h2 {
+            color: #333;
+        }
+        p {
+            margin: 5px 0;
+        }
+    </style>
+</head>
+<body>
+    <h2>JavaScript For...In Example</h2>
+
+    <h3>Person Object Properties:</h3>
+    <button onclick="logPersonProperties()">Log Person Properties</button>
+    <p id="personProperties"></p>
+
+    <h3>Sum Numeric Properties:</h3>
+    <button onclick="sumNumericProperties()">Sum Numeric Properties</button>
+    <p id="sumResult"></p>
+
+    <script>
+        // Create a person object
+        const person = {
+            name: "Kaustubh Kolhe",
+            age: 21,
+            job: "Software Developer",
+            height: 161, 
+            weight: 50
+        };
+
+      
+        function logPersonProperties() {
+            let properties = "";
+            for (let key in person) {
+                properties += `${key}: ${person[key]}<br>`;
+            }
+            document.getElementById('personProperties').innerHTML = properties;
+        }
+
+        
+        function sumNumericProperties() {
+            let sum = 0;
+            for (let key in person) {
+                if (typeof person[key] === "number") {
+                    sum += person[key];
+                }
+            }
+            document.getElementById('sumResult').innerText = `Sum of numeric properties: ${sum}`;
+        }
+    </script>
+</body>
+</html>

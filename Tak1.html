@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Dates Example</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        h2 {
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <h2>JavaScript Dates Example</h2>
+
+    <h3>Current Date and Time:</h3>
+    <p id="currentDate"></p>
+
+    <h3>Convert Date String:</h3>
+    <input type="text" id="dateString" placeholder="Enter date (YYYY-MM-DD)">
+    <button onclick="convertDateString()">Convert</button>
+    <p id="convertedDate"></p>
+
+    <script>
+       
+        const currentDate = new Date();
+        console.log("Current Date and Time:", currentDate);
+
+       
+        document.getElementById('currentDate').innerText = `Current Date and Time: ${currentDate.toString()}`;
+
+        
+        function convertDateString() {
+            const dateString = document.getElementById('dateString').value;
+            const dateObject = new Date(dateString);
+
+            
+            if (isNaN(dateObject)) {
+                document.getElementById('convertedDate').innerText = "Invalid date string!";
+            } else {
+                document.getElementById('convertedDate').innerText = `Converted Date Object: ${dateObject.toString()}`;
+                console.log("Converted Date Object:", dateObject);
+            }
+        }
+    </script>
+</body>
+</html>

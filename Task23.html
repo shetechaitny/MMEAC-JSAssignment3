@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Destructuring Example</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        h2 {
+            color: #333;
+        }
+        p {
+            margin: 5px 0;
+        }
+    </style>
+</head>
+<body>
+    <h2>JavaScript Destructuring Example</h2>
+
+    <h3>Array Destructuring:</h3>
+    <button onclick="arrayDestructuring()">Extract First Two Elements</button>
+    <p id="arrayResult"></p>
+
+    <h3>Object Destructuring:</h3>
+    <input type="text" id="nameInput" placeholder="Enter name">
+    <input type="number" id="ageInput" placeholder="Enter age">
+    <input type="text" id="jobInput" placeholder="Enter job title">
+    <button onclick="formatObject()">Format Object</button>
+    <p id="objectResult"></p>
+
+    <script>
+       
+        const fruits = ['Apple', 'Banana', 'Cherry', 'Date'];
+
+       
+        function arrayDestructuring() {
+            const [first, second] = fruits; 
+            document.getElementById('arrayResult').innerText = 
+                `First Fruit: ${first}, Second Fruit: ${second}`;
+        }
+
+       
+        function formatObject() {
+            const name = document.getElementById('nameInput').value;
+            const age = parseInt(document.getElementById('ageInput').value);
+            const job = document.getElementById('jobInput').value;
+
+            
+            const person = { name, age, job };
+
+            
+            const { name: personName, age: personAge, job: personJob } = person;
+            const formattedString = `Name: ${personName}, Age: ${personAge}, Job: ${personJob}`;
+            
+            document.getElementById('objectResult').innerText = formattedString;
+        }
+    </script>
+</body>
+</html>

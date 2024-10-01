@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Regular Expressions Example</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        h2 {
+            color: #333;
+        }
+        p {
+            margin: 5px 0;
+        }
+    </style>
+</head>
+<body>
+    <h2>JavaScript Regular Expressions Example</h2>
+
+    <h3>Email Validation:</h3>
+    <input type="text" id="emailInput" placeholder="Enter email address">
+    <button onclick="validateEmail()">Validate Email</button>
+    <p id="emailResult"></p>
+
+    <h3>Extract Digits from String:</h3>
+    <input type="text" id="stringInput" placeholder="Enter a string">
+    <button onclick="extractDigits()">Extract Digits</button>
+    <p id="digitResult"></p>
+
+    <script>
+        
+        function validateEmail() {
+            const email = document.getElementById('emailInput').value;
+            const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+
+            if (emailPattern.test(email)) {
+                document.getElementById('emailResult').innerText = 'Valid Email Address';
+            } else {
+                document.getElementById('emailResult').innerText = 'Invalid Email Address';
+            }
+        }
+
+       
+        function extractDigits() {
+            const inputString = document.getElementById('stringInput').value;
+            const digitPattern = /\d+/g; 
+
+            const digits = inputString.match(digitPattern);
+            const result = digits ? digits.join(', ') : 'No digits found';
+
+            document.getElementById('digitResult').innerText = result;
+        }
+    </script>
+</body>
+</html>

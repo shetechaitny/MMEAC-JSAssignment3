@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Random Values Example</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        h2 {
+            color: #333;
+        }
+        p {
+            margin: 5px 0;
+        }
+    </style>
+</head>
+<body>
+    <h2>JavaScript Random Values Example</h2>
+
+    <h3>Random Integer Generator:</h3>
+    <input type="number" id="minValue" placeholder="Minimum Value" />
+    <input type="number" id="maxValue" placeholder="Maximum Value" />
+    <button onclick="generateRandomInteger()">Generate Random Integer</button>
+    <p id="randomIntegerResult"></p>
+
+    <h3>Array of Random Numbers:</h3>
+    <button onclick="generateRandomArray()">Generate Random Array</button>
+    <p id="randomArrayResult"></p>
+    <p id="maxValueResult"></p>
+    <p id="minValueResult"></p>
+
+    <script>
+       
+        function generateRandomInteger() {
+            const min = parseInt(document.getElementById('minValue').value);
+            const max = parseInt(document.getElementById('maxValue').value);
+
+            if (isNaN(min) || isNaN(max) || min > max) {
+                document.getElementById('randomIntegerResult').innerText = "Please enter valid minimum and maximum values.";
+                return;
+            }
+
+            const randomInteger = Math.floor(Math.random() * (max - min + 1)) + min;
+            document.getElementById('randomIntegerResult').innerText = `Random Integer: ${randomInteger}`;
+        }
+
+       
+        function generateRandomArray() {
+            const randomNumbers = [];
+            for (let i = 0; i < 10; i++) {
+                randomNumbers.push(Math.floor(Math.random() * 100)); 
+            }
+
+            const maxValue = Math.max(...randomNumbers);
+            const minValue = Math.min(...randomNumbers);
+
+            document.getElementById('randomArrayResult').innerText = `Random Numbers: ${randomNumbers.join(', ')}`;
+            document.getElementById('maxValueResult').innerText = `Maximum Value: ${maxValue}`;
+            document.getElementById('minValueResult').innerText = `Minimum Value: ${minValue}`;
+        }
+    </script>
+</body>
+</html>

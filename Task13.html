@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript For...Of Example</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        h2 {
+            color: #333;
+        }
+        p {
+            margin: 5px 0;
+        }
+    </style>
+</head>
+<body>
+    <h2>JavaScript For...Of Example</h2>
+
+    <h3>Multiplying Numbers:</h3>
+    <button onclick="multiplyNumbers()">Multiply Numbers by 2</button>
+    <p id="multipliedNumbers"></p>
+
+    <h3>Convert Iterable to Array:</h3>
+    <input type="text" id="iterableInput" placeholder="Enter text or numbers separated by commas" />
+    <button onclick="convertIterableToArray()">Convert Iterable</button>
+    <p id="iterableResult"></p>
+
+    <script>
+   
+        const numbers = [1, 2, 3, 4, 5];
+
+    
+        function multiplyNumbers() {
+            let multiplied = [];
+            for (const number of numbers) {
+                multiplied.push(number * 2);
+            }
+            document.getElementById('multipliedNumbers').innerText = `Multiplied Numbers: ${multiplied.join(', ')}`;
+        }
+
+        
+        function convertIterableToArray() {
+            const input = document.getElementById('iterableInput').value;
+            const iterable = input.split(',').map(item => item.trim());
+            let resultArray = [];
+
+            for (const element of iterable) {
+                resultArray.push(element);
+            }
+
+            document.getElementById('iterableResult').innerText = `Converted Array: [${resultArray.join(', ')}]`;
+        }
+    </script>
+</body>
+</html>

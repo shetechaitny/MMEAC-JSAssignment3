@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript typeof Operator Example</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        h2 {
+            color: #333;
+        }
+        p {
+            margin: 5px 0;
+        }
+    </style>
+</head>
+<body>
+    <h2>JavaScript typeof Operator Example</h2>
+
+    <h3>Get Type of a Variable:</h3>
+    <input type="text" id="variableInput" placeholder="Enter a value (e.g., 123, 'text', [1,2], {})">
+    <button onclick="checkType()">Check Type</button>
+    <p id="typeOutput"></p>
+
+    <h3>Log Types of Various Variables:</h3>
+    <button onclick="logVariableTypes()">Log Variable Types</button>
+    <p id="variableTypesOutput"></p>
+
+    <script>
+      
+        function checkType() {
+            const inputValue = document.getElementById('variableInput').value;
+            
+            let value;
+            try {
+                value = JSON.parse(inputValue); 
+            } catch (e) {
+                value = inputValue; 
+            }
+            const type = typeof value; 
+            document.getElementById('typeOutput').innerText = `Type: ${type}`;
+        }
+
+        
+        function logVariableTypes() {
+            const variables = {
+                str: "Hello, world!", 
+                num: 42,             
+                obj: { key: "value" }, 
+                arr: [1, 2, 3],   
+                func: function() { return "I am a function"; } 
+            };
+
+            let output = '';
+            for (const [key, value] of Object.entries(variables)) {
+                output += `${key}: ${typeof value}\n`;
+            }
+            document.getElementById('variableTypesOutput').innerText = output;
+        }
+    </script>
+</body>
+</html>

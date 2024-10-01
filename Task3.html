@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Date Get Methods Example</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        h2 {
+            color: #333;
+        }
+        p {
+            margin: 5px 0;
+        }
+    </style>
+</head>
+<body>
+    <h2>JavaScript Date Get Methods Example</h2>
+
+    <h3>Date Components:</h3>
+    <p id="dateComponents"></p>
+
+    <h3>Current Time:</h3>
+    <p id="currentTime"></p>
+
+    <script>
+        
+        function getDateComponents(date) {
+            const year = date.getFullYear();
+            const month = date.getMonth() + 1; 
+            const day = date.getDate();
+            return { year, month, day };
+        }
+
+       
+        const currentDate = new Date();
+
+      
+        const { year, month, day } = getDateComponents(currentDate);
+        document.getElementById('dateComponents').innerText = `Year: ${year}, Month: ${month}, Day: ${day}`;
+
+        
+        const currentHour = currentDate.getHours();
+        const currentMinute = currentDate.getMinutes();
+        const currentSecond = currentDate.getSeconds();
+
+        document.getElementById('currentTime').innerText = `Current Time: ${currentHour}:${currentMinute}:${currentSecond}`;
+    </script>
+</body>
+</html>

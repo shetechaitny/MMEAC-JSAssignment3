@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Custom Iterable Example</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        h2 {
+            color: #333;
+        }
+        p {
+            margin: 5px 0;
+        }
+    </style>
+</head>
+<body>
+    <h2>JavaScript Custom Iterable Example</h2>
+
+    <h3>Custom Iterable:</h3>
+    <button onclick="displayCustomIterable()">Display Custom Iterable Elements</button>
+    <p id="customIterableOutput"></p>
+
+    <h3>Convert Iterable to Array:</h3>
+    <button onclick="convertIterableToArray()">Convert Custom Iterable to Array</button>
+    <p id="iterableToArrayOutput"></p>
+
+    <script>
+        // Custom iterable object
+        const customIterable = {
+            items: [10, 20, 30, 40, 50],
+            [Symbol.iterator]() {
+                let index = 0; 
+                return {
+                    next: () => {
+                        if (index < this.items.length) {
+                            return { value: this.items[index++], done: false };
+                        } else {
+                            return { done: true };
+                        }
+                    }
+                };
+            }
+        };
+
+   
+        function displayCustomIterable() {
+            let output = "";
+            for (const item of customIterable) {
+                output += item + " ";
+            }
+            document.getElementById('customIterableOutput').innerText = `Elements: ${output}`;
+        }
+
+  
+        function convertIterableToArray() {
+            const arrayFromIterable = [];
+            for (const element of customIterable) {
+                arrayFromIterable.push(element);
+            }
+            document.getElementById('iterableToArrayOutput').innerText = `Converted Array: [${arrayFromIterable.join(', ')}]`;
+        }
+    </script>
+</body>
+</html>

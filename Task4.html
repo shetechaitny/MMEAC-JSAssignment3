@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Date Set Methods Example</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        h2 {
+            color: #333;
+        }
+        p {
+            margin: 5px 0;
+        }
+    </style>
+</head>
+<body>
+    <h2>JavaScript Date Set Methods Example</h2>
+
+    <h3>Modified Date:</h3>
+    <p id="modifiedDate"></p>
+
+    <h3>First Day of Next Month:</h3>
+    <p id="firstDayNextMonth"></p>
+
+    <script>
+        
+        function setDateComponents(date, newYear, newMonth, newDay) {
+            date.setFullYear(newYear);
+            date.setMonth(newMonth - 1); 
+            date.setDate(newDay);
+            return date;
+        }
+
+       
+        const currentDate = new Date();
+
+        //  (Set to 27th September 2024)
+        const modifiedDate = setDateComponents(currentDate, 2024, 9,27);
+        document.getElementById('modifiedDate').innerText = `Modified Date: ${modifiedDate.toDateString()}`;
+
+        
+        const firstDayNextMonth = new Date(currentDate); 
+        firstDayNextMonth.setMonth(currentDate.getMonth() + 1); 
+        firstDayNextMonth.setDate(1); 
+        document.getElementById('firstDayNextMonth').innerText = `First Day of Next Month: ${firstDayNextMonth.toDateString()}`;
+    </script>
+</body>
+</html>

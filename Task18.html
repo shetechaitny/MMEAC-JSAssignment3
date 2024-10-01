@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Set Methods Example</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        h2 {
+            color: #333;
+        }
+        p {
+            margin: 5px 0;
+        }
+    </style>
+</head>
+<body>
+    <h2>JavaScript Set Methods Example</h2>
+
+    <h3>Set Intersection of Two Arrays:</h3>
+    <button onclick="findSetIntersection()">Find Intersection</button>
+    <p id="intersectionOutput"></p>
+
+    <h3>Demonstrate Set Methods:</h3>
+    <button onclick="checkElement()">Check if Element (30) Exists</button>
+    <button onclick="deleteElement()">Delete Element (20)</button>
+    <button onclick="clearSet()">Clear Set</button>
+    <p id="setMethodsOutput"></p>
+
+    <script>
+        
+        const array1 = [10, 20, 30, 40, 50];
+        const array2 = [20, 30, 60, 70];
+
+        
+        function findSetIntersection() {
+            const set1 = new Set(array1);
+            const set2 = new Set(array2);
+            const intersection = new Set([...set1].filter(item => set2.has(item)));
+
+            document.getElementById('intersectionOutput').innerText = `Intersection: [${[...intersection].join(', ')}]`;
+        }
+
+      
+        const demoSet = new Set([10, 20, 30, 40, 50]);
+
+        
+        function checkElement() {
+            const exists = demoSet.has(30); 
+            document.getElementById('setMethodsOutput').innerText = `Element 30 exists: ${exists}`;
+        }
+
+       
+        function deleteElement() {
+            demoSet.delete(20); 
+            document.getElementById('setMethodsOutput').innerText = `Set after deleting 20: [${[...demoSet].join(', ')}]`;
+        }
+
+       
+        function clearSet() {
+            demoSet.clear(); 
+            document.getElementById('setMethodsOutput').innerText = `Set cleared: [${[...demoSet].join(', ')}]`;
+        }
+    </script>
+</body>
+</html>

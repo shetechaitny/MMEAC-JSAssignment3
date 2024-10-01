@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Map Methods Example</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        h2 {
+            color: #333;
+        }
+        p {
+            margin: 5px 0;
+        }
+    </style>
+</head>
+<body>
+    <h2>JavaScript Map Methods Example</h2>
+
+    <h3>Get Keys from a Map:</h3>
+    <button onclick="getKeysFromMap()">Get Keys</button>
+    <p id="keysOutput"></p>
+
+    <h3>Demonstrate Map Methods:</h3>
+    <button onclick="demonstrateMapMethods()">Set, Get, and Has</button>
+    <p id="mapMethodsOutput"></p>
+
+    <script>
+        
+        const sampleMap = new Map([
+            ['Kaustubh', 21],
+            ['Om', 30],
+            ['Chaitany', 22],
+            ['Nilesh', 28]
+        ]);
+
+        
+        function getKeysFromMap() {
+            const keysArray = Array.from(sampleMap.keys());
+            document.getElementById('keysOutput').innerText = `Keys: [${keysArray.join(', ')}]`;
+        }
+
+        
+        function demonstrateMapMethods() {
+            
+            sampleMap.set('Kiran', 26); 
+            const ageOfKaustubh = sampleMap.get('Kaustubh'); 
+            const hasOm = sampleMap.has('Om'); 
+
+          
+            const output = `Age of Kaustubh: ${ageOfKaustubh}\n` +
+                           `Map has Om: ${hasOm}\n` +
+                           `Updated Map: [${[...sampleMap].map(([name, age]) => `${name}: ${age}`).join(', ')}]`;
+            
+            document.getElementById('mapMethodsOutput').innerText = output;
+        }
+    </script>
+</body>
+</html>

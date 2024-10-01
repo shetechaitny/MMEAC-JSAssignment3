@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Break Statement Example</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        h2 {
+            color: #333;
+        }
+        p {
+            margin: 5px 0;
+        }
+    </style>
+</head>
+<body>
+    <h2>JavaScript Break Statement Example</h2>
+
+    <h3>Find First Number Greater than 50:</h3>
+    <button onclick="findFirstGreaterThanFifty()">Find Number</button>
+    <p id="firstGreaterThanFiftyOutput"></p>
+
+    <h3>Find Number Divisible by 13:</h3>
+    <button onclick="findDivisibleByThirteen()">Find Divisible Number</button>
+    <p id="divisibleByThirteenOutput"></p>
+
+    <script>
+        
+        const numbersArray = [10, 23, 45, 67, 34, 89, 21, 52, 11];
+
+        
+        function findFirstGreaterThanFifty() {
+            let result = "No number found greater than 50.";
+            for (const number of numbersArray) {
+                if (number > 50) {
+                    result = `First number greater than 50: ${number}`;
+                    break; 
+                }
+            }
+            document.getElementById('firstGreaterThanFiftyOutput').innerText = result;
+        }
+
+        
+        function findDivisibleByThirteen() {
+            let result = "No number found divisible by 13.";
+            for (let i = 1; i <= 100; i++) {
+                if (i % 13 === 0) {
+                    result = `First number divisible by 13: ${i}`;
+                    break; 
+                }
+            }
+            document.getElementById('divisibleByThirteenOutput').innerText = result;
+        }
+    </script>
+</body>
+</html>

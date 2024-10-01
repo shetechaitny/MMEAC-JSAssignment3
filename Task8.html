@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Comparisons Example</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        h2 {
+            color: #333;
+        }
+        p {
+            margin: 5px 0;
+        }
+    </style>
+</head>
+<body>
+    <h2>JavaScript Comparisons Example</h2>
+
+    <h3>Number Comparison:</h3>
+    <input type="number" id="firstNumber" placeholder="Enter first number" />
+    <input type="number" id="secondNumber" placeholder="Enter second number" />
+    <button onclick="compareNumbers()">Compare Numbers</button>
+    <p id="comparisonResult"></p>
+
+    <h3>String Equality Check:</h3>
+    <input type="text" id="stringInput" placeholder="Enter a string" />
+    <button onclick="checkStringEquality()">Check String Equality</button>
+    <p id="stringResult"></p>
+
+    <script>
+      
+        function compareNumbers() {
+            const num1 = parseFloat(document.getElementById('firstNumber').value);
+            const num2 = parseFloat(document.getElementById('secondNumber').value);
+            let result;
+
+            if (isNaN(num1) || isNaN(num2)) {
+                result = "Please enter valid numbers.";
+            } else if (num1 > num2) {
+                result = `${num1} is larger than ${num2}.`;
+            } else if (num1 < num2) {
+                result = `${num2} is larger than ${num1}.`;
+            } else {
+                result = `${num1} and ${num2} are equal.`;
+            }
+
+            document.getElementById('comparisonResult').innerText = result;
+        }
+
+        
+        function checkStringEquality() {
+            const inputString = document.getElementById('stringInput').value;
+            const strictEquality = (inputString === "JavaScript");
+            const looseEquality = (inputString == "Javascript");
+
+            let result = `Strict Equality: ${strictEquality}, Loose Equality: ${looseEquality}`;
+            document.getElementById('stringResult').innerText = result;
+        }
+    </script>
+</body>
+</html>

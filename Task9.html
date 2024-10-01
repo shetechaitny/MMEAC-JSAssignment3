@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript If Else Example</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        h2 {
+            color: #333;
+        }
+        p {
+            margin: 5px 0;
+        }
+    </style>
+</head>
+<body>
+    <h2>JavaScript If Else Example</h2>
+
+    <h3>Grade Checker:</h3>
+    <input type="number" id="gradeInput" placeholder="Enter your grade" />
+    <button onclick="getLetterGrade()">Get Letter Grade</button>
+    <p id="gradeResult"></p>
+
+    <h3>Even or Odd Checker:</h3>
+    <input type="number" id="numberInput" placeholder="Enter a number" />
+    <button onclick="checkEvenOrOdd()">Check Even or Odd</button>
+
+    <script>
+       
+        function getLetterGrade() {
+            const grade = parseInt(document.getElementById('gradeInput').value);
+            let result;
+
+            if (isNaN(grade)) {
+                result = "Please enter a valid grade.";
+            } else if (grade >= 90) {
+                result = "Letter Grade: A";
+            } else if (grade >= 80) {
+                result = "Letter Grade: B";
+            } else if (grade >= 70) {
+                result = "Letter Grade: C";
+            } else if (grade >= 60) {
+                result = "Letter Grade: D";
+            } else {
+                result = "Letter Grade: F";
+            }
+
+            document.getElementById('gradeResult').innerText = result;
+        }
+
+       
+        function checkEvenOrOdd() {
+            const number = parseInt(document.getElementById('numberInput').value);
+
+            if (isNaN(number)) {
+                console.log("Please enter a valid number.");
+                return;
+            }
+
+            if (number % 2 === 0) {
+                console.log(`${number} is even.`);
+            } else {
+                console.log(`${number} is odd.`);
+            }
+        }
+    </script>
+</body>
+</html>

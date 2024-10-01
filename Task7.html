@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Booleans Example</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        h2 {
+            color: #333;
+        }
+        p {
+            margin: 5px 0;
+        }
+    </style>
+</head>
+<body>
+    <h2>JavaScript Booleans Example</h2>
+
+    <h3>Number Check:</h3>
+    <input type="number" id="numberInput" placeholder="Enter a number" />
+    <button onclick="checkNumber()">Check Number</button>
+    <p id="numberResult"></p>
+
+    <h3>Voting Eligibility Check:</h3>
+    <input type="number" id="ageInput" placeholder="Enter your age" />
+    <button onclick="checkVotingEligibility()">Check Voting Eligibility</button>
+    <p id="votingResult"></p>
+
+    <script>
+        
+        function checkNumber() {
+            const number = parseFloat(document.getElementById('numberInput').value);
+            let result;
+
+            if (isNaN(number)) {
+                result = "Please enter a valid number.";
+            } else {
+                const isPositive = number > 0;
+                const isNegative = number < 0;
+                const isZero = number === 0;
+
+                result = `Positive: ${isPositive}, Negative: ${isNegative}, Zero: ${isZero}`;
+            }
+
+            document.getElementById('numberResult').innerText = result;
+        }
+
+        // Function to check voting eligibility
+        function checkVotingEligibility() {
+            const age = parseInt(document.getElementById('ageInput').value);
+            let result;
+
+            if (isNaN(age)) {
+                result = "Please enter a valid age.";
+            } else {
+                const isEligibleToVote = age >= 18;
+                result = isEligibleToVote ? "You are eligible to vote." : "You are not eligible to vote.";
+            }
+
+            document.getElementById('votingResult').innerText = result;
+        }
+    </script>
+</body>
+</html>

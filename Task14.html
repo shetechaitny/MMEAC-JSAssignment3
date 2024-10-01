@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript While Loop Example</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        h2 {
+            color: #333;
+        }
+        p {
+            margin: 5px 0;
+        }
+    </style>
+</head>
+<body>
+    <h2>JavaScript While Loop Example</h2>
+
+    <h3>Print Numbers from 1 to 10:</h3>
+    <button onclick="printNumbers()">Print Numbers</button>
+    <p id="numberOutput"></p>
+
+    <h3>Input Prompt:</h3>
+    <button onclick="askForInput()">Start Asking for Input</button>
+    <p id="inputOutput"></p>
+
+    <script>
+       
+        function printNumbers() {
+            let output = "";
+            let number = 1;
+
+            while (number <= 10) {
+                output += number + " ";
+                number++;
+            }
+
+            document.getElementById('numberOutput').innerText = `Numbers: ${output}`;
+        }
+
+        
+        function askForInput() {
+            let userInput = "";
+            let allInputs = [];
+
+            while (userInput.toLowerCase() !== "stop") {
+                userInput = prompt("Enter something (type 'stop' to end):");
+                if (userInput && userInput.toLowerCase() !== "stop") {
+                    allInputs.push(userInput);
+                }
+            }
+
+            document.getElementById('inputOutput').innerText = `You entered: ${allInputs.join(', ')}`;
+        }
+    </script>
+</body>
+</html>
